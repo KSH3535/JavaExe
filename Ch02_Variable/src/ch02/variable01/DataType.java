@@ -9,6 +9,7 @@ public class DataType {
 		String name = "홍길동";				// 문자열
 		boolean isRun = true;					// true or false
 		String str = "a";
+		String name1 = "Albert";
 		
 		System.out.println(num);
 		num = 999;
@@ -18,5 +19,6 @@ public class DataType {
 		System.out.println(name);
 		System.out.println(isRun);
 		System.out.println(str);
+		System.out.println(name1);
 	}
 }
