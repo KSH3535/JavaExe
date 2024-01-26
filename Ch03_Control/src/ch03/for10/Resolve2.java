@@ -13,10 +13,30 @@ public class Resolve2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		for (int i = 1; i < 100; i++) {
-			i = sc.nextInt();
-			if ()
+		while (true) {
+			System.out.print("1~99까지 정수 입력 (음수 입력시 종료) >> ");
+			int num = sc.nextInt();
+			
+			if (num < 0)
+				break;
+			
+			int n10 = num / 10;					//십의자리
+			int n1 = num % 10;					//일의자리
+			
+			int cnt = 0;								//3,6,9 개수
+			
+			if (n10 == 3 || n10 == 6 || n10 == 9)
+				cnt++;
+			if (n1 == 3 || n1 == 6 || n1 == 9)
+				cnt++;
+			
+			if (cnt == 1)
+				System.out.println("박수짝");
+			else if (cnt == 2)
+				System.out.println("박수짝짝");
 		}
+		
+		System.out.println("종료!");
 		
 		sc.close();
 	}
