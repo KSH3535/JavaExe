@@ -7,18 +7,16 @@ public class Resolve13 {
 //	   예를 들어 5를 입력받으면 3 6 9 12 15를 출력하면 됩니다
 	
 	public static void main(String[] args) {
-		int num = 0;
-		int count = 0;
-		
 		System.out.print("양의 정수를 입력하세요 >> ");
 		Scanner sc = new Scanner(System.in);
-		num = sc.nextInt();
+		int num = sc.nextInt();
 		
+		for (int i = 1; i <= num; i++) {
+			System.out.println(3 * i);
 		
-
+			sc.close();
 		}
 		
-		sc.close();
 	}
 
 }
