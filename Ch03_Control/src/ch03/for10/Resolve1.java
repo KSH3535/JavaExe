@@ -9,17 +9,49 @@ public class Resolve1 {
 //	예를 들어 78670원이면 <오만원 1매, 만원 2매, 오천원 1매, 천원 3매, 500원 1개, 100원 1개, 50원 1개, 10원 2개> 입니다.
 
 	public static void main(String[] args) {
-		int money = 0;
-		int a, b, c, d, e, f, g, h = 0;
-		
-		System.out.print("돈을 입금하세요 >> ");
 		Scanner sc = new Scanner(System.in);
-		money = sc.nextInt();
 		
-		System.out.print("오만원 "+a+"매, "+"만원 "+b+"매, "+);
+		// 무한루프, 계속 반복
+		// 반복문 내에 탈출 조건이 있어야 한다.
+		while (true) {
+			int money = 0;
+			System.out.print("돈을 입금하세요 (음수 입력시 종료) >> ");
+			money = sc.nextInt();
+			
+			if (money < 0)
+				break;
+	
+			int m50000 = money / 50000;
+			money = money % 50000;
+			int m10000 = money / 10000;
+			money = money % 10000;
+			int m5000 = money / 5000;
+			money = money % 5000;
+			int m1000 = money / 1000;
+			money = money % 1000;
+			int m500 = money / 500;
+			money = money % 500;
+			int m100 = money / 100;
+			money = money % 100;
+			int m50 = money / 50;
+			money = money % 50;
+			int m10 = money / 10;
+			money = money % 10;
+			int m1 = money;
+			
+			System.out.printf("오만원 : %d\n"
+									+ "만원 : %d\n"
+									+ "오천원 : %d\n"
+									+ "천원 : %d\n"
+									+ "오백원 : %d\n"
+									+ "백원 : %d\n"
+									+ "오십원 : %d\n"
+									+ "십원 : %d\n"
+									+ "일원 : %d\n"
+									, m50000, m10000, m5000, m1000, m500, m100, m50, m10, m1);
+		}
 		
-		
-		
+		System.out.println("종료!");
 		
 		sc.close();
 	}
