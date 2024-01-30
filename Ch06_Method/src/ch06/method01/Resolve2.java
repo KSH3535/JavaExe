@@ -9,11 +9,7 @@ public class Resolve2 {
 
 	
 	public static void value(int num, int num1) {
-		int result = 0;
-		if (num > num1)
-			result = num - num1;
-		else
-			result = num1 - num;
+		int result = (num > num1) ? num - num1 : num1 - num;
 		System.out.println("두 정수의 차의 절대값은 " + result + "입니다.");
 	}
 	
