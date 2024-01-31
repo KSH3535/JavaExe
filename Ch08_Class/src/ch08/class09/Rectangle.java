@@ -12,8 +12,11 @@ public class Rectangle {
 	private int x2;
 	private int y2;
 	
-	public Rectangle() {
-		
+	public Rectangle(int x1,int y1,int x2,int y2) {
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
 	}
 	
 	public void set(int x1, int y1, int x2, int y2) {
@@ -24,15 +27,21 @@ public class Rectangle {
 	}
 	
 	public int square() {
-		
+		int width = x2 - x1;
+		int height = y2 - y1;
+		return width * height;
 	}
 	
 	public void show() {
-		
+		System.out.printf("입력한 좌표 : (%d, %d), (%d, %d)\n", x1, y1, x2, y2);
+		System.out.println("사각형의 넓이 : " + square());
 	}
 	
 	public boolean equals(Rectangle r) {
-		
+		return this.x1 == r.x1 &&
+				this.y1 == r.y1 &&
+				this.x2 == r.x2 &&
+				this.y2 == r.y2;
 	}
 	
 	

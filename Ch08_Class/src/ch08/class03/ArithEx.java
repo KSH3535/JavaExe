@@ -6,6 +6,7 @@ public class ArithEx {
 	public static void main(String[] args) {
 		int a = 10, b = 5;
 		int result = 0;
+		
 		result = Arith.add(a,  b);
 		System.out.println(result);
 		result = Arith.sub(a,  b);
