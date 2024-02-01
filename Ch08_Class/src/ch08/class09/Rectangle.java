@@ -8,10 +8,7 @@ package ch08.class09;
 //boolean equals(Rectangle r) : 인자로 전달된 객체 r과 현 객체가 동일한 좌표의 직사각형이면 true 리턴
 
 public class Rectangle {
-	private int x1;
-	private int y1;
-	private int x2;
-	private int y2;
+	private int x1, y1, x2, y2;
 
 	public void set(int x1, int y1, int x2, int y2) {
 		if (x1 == x2 || y1 == y2) {
@@ -25,25 +22,29 @@ public class Rectangle {
 	}
 	
 	public int square() {
-		int width = x2 - x1;
-		int height = y2 - y1;
+		int width = Math.abs( x2 - x1);
+		int height = Math.abs(y2 - y1);
 		return width * height;
 	}
 	
 	public void show() {
-		System.out.printf("입력한 좌표 : (%d, %d) (%d, %d)\n", x1, y1, x2, y2);
+		int leftX = x1 < x2 ? x1 : x2;						
+		int topY = y1 < y2 ? y1 : y2;
+		int rightX = x1 > x2 ? x1 : x2;
+		int bottomY = y1 > y2 ? y1 : y2;
+		
+		System.out.printf("입력한 좌표 : (%d, %d) (%d, %d)\n", leftX, topY, rightX, bottomY);
 		System.out.println("사각형의 넓이 : " + square());
 		System.out.println();
 	}
 	
 	public boolean equals(Rectangle r) {
-		if ((this.x1 == r.x1 || this.x1==r.x2) &&
-				(this.x2 == r.x2 || this.x2==r.x1) &&
-				(this.y1 == r.y1 || this.y1==r.y2) &&
-				(this.y2 == r.y2 || this.y2==r.y1)) {
-				System.out.println("같은 사각형 입니다.");
+		if ((this.x1 == r.x1) &&
+				(this.y1 == r.y1) &&
+				(this.x2 == r.x2) &&
+				(this.y2 == r.y2))
 				return true;
-			} else
+		 else
 				return false;
 	}
 	
