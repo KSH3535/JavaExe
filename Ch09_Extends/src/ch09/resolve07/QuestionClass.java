@@ -1,5 +1,6 @@
 package ch09.resolve07;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -80,6 +81,7 @@ public class QuestionClass {
 			+ "     2차 놀이에서 어린이2는 어린이 1의 구슬 7개를 획득한다\r\n"
 			+ "     마지막으로 각각의 어린이가 보유하고 있는 구슬의 수를 출력한다\r\n"
 			+ "     프로그램을 종료한다.\r\n"
+			+ "6. Program End~"
 			+ "";
 	
 	System.out.println("\n\n\n------------------------------------");
@@ -101,17 +103,44 @@ public static int getSelectMenu(Scanner sc) {
 
 // 1번 문제에 대한 풀이
 public static void answer1(Scanner sc) {
+	Add add = new Add();
+	Sub sub = new Sub();
+	Mul mul = new Mul();
+	Div div = new Div();
+	
+	add.setValue(10, 20);
+	sub.setValue(10, 20);
+	mul.setValue(10, 20);
+	div.setValue(10, 20);
+	
+	System.out.println(add.calculate());
+	System.out.println(sub.calculate());
+	System.out.println(mul.calculate());
+	System.out.println(div.calculate());
 
 }
 
 // 2번 문제에 대한 풀이
 public static void answer2(Scanner sc) {
+	Triangle tri = new Triangle(10, 10);
 
+	tri.setWidth (10);
+	tri.setHeight (5);
+
+	System.out.printf("밑변이 %d, 높이가 %d인 삼각형의 넓이 : %.1f\n"
+								,tri.width, tri.height, tri.area());
 }
 
 // 3번 문제에 대한 풀이
 public static void answer3(Scanner sc) {
-
+	int[] intArr = {1, 2, 3, 4, 5};
+	System.out.println(Arrays.toString(intArr));
+	System.out.println(Arrays.toString(ArrayUtility.intToDouble(intArr)));
+	System.out.println();
+	
+	double[] doubleArr = {1.2, 2.3, 3.4, 4.5, 5.6};
+	System.out.println(Arrays.toString(doubleArr));
+	System.out.println(Arrays.toString(ArrayUtility.doubleToInt(doubleArr)));
 }
 
 // 4번 문제에 대한 풀이
@@ -121,7 +150,15 @@ public static void answer4(Scanner sc) {
 
 // 5번 문제에 대한 풀이
 public static void answer5(Scanner sc) {
-
+	Child Alex = new Child(15);
+	Child James = new Child(9);
+	
+	Alex.get(James, 2);
+	James.get(Alex, 7);
+	
+	System.out.println("Alex의 구슬 개수 : " + Alex.getBallCnt());
+	System.out.println("James의 구슬 개수 : " + James.getBallCnt());
+	
 }
 
 // 전체의 시작인 main 메서드
@@ -161,7 +198,10 @@ public static void main(String[] args) {
 		default:
 			System.out.println("번호를 잘 못 입력했습니다.");
 			break;
-		}			
+		}
+		
+		sc.nextLine();
+		sc.nextLine();
 	}
 
 	System.out.println("Program End~");

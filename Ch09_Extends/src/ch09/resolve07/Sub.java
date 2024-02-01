@@ -1,6 +1,6 @@
 package ch09.resolve07;
 
-public class Mul {
+public class Sub {
 	int  a, b;
 	
 	public void setValue(int a, int b) {
@@ -9,6 +9,6 @@ public class Mul {
 	}
 	
 	public int calculate() {
-		return (a * b);
+		return (a - b);
 	}
 }
