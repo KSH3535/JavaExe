@@ -39,6 +39,7 @@ public class QuestionClass {
 				+ "   int square() : 사각형 넓이 리턴\r\n"
 				+ "   void show() : 좌표와 넓이 등 직사각형 정보의 화면 출력\r\n"
 				+ "   boolean equals(Rectangle r) : 인자로 전달된 객체 r과 현 객체가 동일한 좌표의 직사각형이면 true 리턴\r\n"
+				+ "6. Program End~" 
 				+ "";
 		
 		System.out.println("\n\n\n------------------------------------");
@@ -60,7 +61,16 @@ public class QuestionClass {
 
 	// 1번 문제에 대한 풀이
 	public static void answer1(Scanner sc) {
+		FruitSeller seller = new FruitSeller(20);
+		FruitBuyer buyer = new FruitBuyer(10000);
+		
+		seller.showSaleResult();
+		buyer.showBuyResult();
+		System.out.println();
 
+		seller.saleApple(buyer, 2000);
+		seller.showSaleResult();
+		buyer.showBuyResult();
 	}
 
 	// 2번 문제에 대한 풀이
@@ -70,17 +80,54 @@ public class QuestionClass {
 
 	// 3번 문제에 대한 풀이
 	public static void answer3(Scanner sc) {
-
+		PearMarket market = new PearMarket(20);
+		PearBuyer buyer = new PearBuyer(10000);
+		
+		market.showSaleResult();
+		buyer.showBuyResult();
+		System.out.println();
+		
+		buyer.buyPear(market, 5000);
+		
+		market.showSaleResult();
+		buyer.showBuyResult();
 	}
 
 	// 4번 문제에 대한 풀이
 	public static void answer4(Scanner sc) {
-
+		Song song = new Song();
+		
+		song.setSongInfo("Dancing Queen", "ABBA", "Arrival",
+				"Benny Andersson, Agnetha Faltskog, Anni-Frid Lyngstad, Bjorn Ulvaeus"
+				, 2001, 2);
+		
+		song.show();
 	}
 
 	// 5번 문제에 대한 풀이
 	public static void answer5(Scanner sc) {
-
+		Rectangle rec = new Rectangle();
+		rec.set(1, 3, 5, 8);
+		
+		Rectangle rec1 = new Rectangle();
+		rec1.set(1, 3, 5, 8);
+		
+		Rectangle rec2 = new Rectangle();
+		rec2.set(50, 20, 30, 70);
+		
+		rec.show();
+		rec1.show();
+		rec2.show();
+				
+		if(rec.equals(rec1)) 
+			System.out.println("rec와 rec1은 같은 사각형 입니다.");
+		else
+			System.out.println("rec와 rec1은 다른 사각형 입니다.");
+			
+		if(rec.equals(rec2)) 
+			System.out.println("rec와 rec2은 같은 사각형 입니다.");
+		else
+			System.out.println("rec와 rec2은 다른 사각형 입니다.");
 	}
 
 	// 전체의 시작인 main 메서드
@@ -118,9 +165,11 @@ public class QuestionClass {
 				isRun = false;				// 6번 탈출
 				break;
 			default:
-				System.out.println("번호를 잘 못 입력했습니다.");
+				System.out.println("번호를 잘못 입력했습니다.");
 				break;
-			}			
+			}
+			sc.nextLine();
+			sc.nextLine();			
 		}
 
 		System.out.println("Program End~");

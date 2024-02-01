@@ -2,8 +2,8 @@ package ch08.class09;
 
 public class PearMarket {
 	private int numOfPear;
-	final int PEAR_PRICE = 2500;
 	private int saleMoney;
+	final int PEAR_PRICE = 2500;
 	
 	public PearMarket(int numOfPear) {
 		this.numOfPear = numOfPear;

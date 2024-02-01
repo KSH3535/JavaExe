@@ -5,22 +5,21 @@ package ch08.class09;
 public class PearBuyer {
 	private int numOfPear;
 	private int money;								// 내가 가진돈
-	private int cost;									// 지불한 돈
 	final int PEAR_PRICE = 2500;
 	
-	public PearBuyer(int numOfPear) {
-		this.numOfPear = numOfPear;
-		this.money = 5000;											// 변동가능성있음 동적으로 변경?
+	public PearBuyer(int money) {
+		this.money = money;											
+		this.numOfPear = 0;
 	}
 	
-	public void buyPear(PearMarket market, int numOfPear) {
-		this.numOfPear -= money / PEAR_PRICE;
-		this.money -= cost;
+	public void buyPear(PearMarket market, int money) {
+		this.numOfPear += market.salePear(money);
+		this.money -= money;
 	}
 	
 	public void showBuyResult() {
 		System.out.println("*** 나의 배 구매 현황 ***");
-		System.out.println("구입한 배 개수 : " + numOfPear);
+		System.out.println("배 개수 : " + numOfPear);
 		System.out.println("현재 잔액 : " + money);						
 	}
 		

@@ -16,12 +16,12 @@ public class FruitBuyer {
 		int num = money / APPLE_PRICE;
 		numOfApple += num;
 		this.money -= money;
-		return money;
+		return num;
 	}
 	
 	public void showBuyResult() {
 		System.out.println("*** 과일 구매자의 현재 상황 ***");
-		System.out.println("현재 잔액 : " + money);						//this 생략가능
+		System.out.println("현재 잔액 : " + money);						
 		System.out.println("사과 개수 : " + numOfApple);
 	}
 }
