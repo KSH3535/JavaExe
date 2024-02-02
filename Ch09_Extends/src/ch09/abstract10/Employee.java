@@ -1,6 +1,7 @@
 package ch09.abstract10;
 
 public abstract class Employee {
+	//자식객체가 접근가능하도록 필드를 protected로 선언
 	protected String empno;					//사번
 	protected String name;						//이름
 	

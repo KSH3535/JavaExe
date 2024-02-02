@@ -22,9 +22,9 @@ public class RegularEmployee extends Employee {
 	// 부모의 기능 + 추가 확장	 (Source -> Override/Implement Methods)
 	@Override
 	public void showEmployeeInfo() {
-		super.showEmployeeInfo();												// 부모 객체 Employee의 showEmployeeInfo()
+		super.showEmployeeInfo();												// 부모 객체 Employee의 showEmployeeInfo() 호출
 		System.out.println("bonus : " + bonus);							// 추가 확장하고자 하는 내용
-		System.out.println("monthPay : " + getMonthPay());
+		System.out.printf("monthPay : %.2f\n ",  getMonthPay());
 	}
 	
 	
