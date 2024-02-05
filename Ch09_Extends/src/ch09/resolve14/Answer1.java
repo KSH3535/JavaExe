@@ -16,10 +16,9 @@ public class Answer1 implements IQuestionAnswer {
 				+ "편의상 print()메서드를 한 번 호출할 때마다 인쇄용지 1매를 사용하는 것으로 한다\r\n"
 				+ "클래스들을 설계하고\r\n"
 				+ "적절한 필드, 생성자, 메서드를 작성하세요\r\n"
-				+ "그리고 실행 프로그램을 작성해서 동작시키세요";
+				+ "그리고 실행 프로그램을 작성해서 동작시키세요\r\n\r\n";
 				
 		System.out.println(question);
-		System.out.println();
 	}
 
 	@Override
@@ -28,6 +27,11 @@ public class Answer1 implements IQuestionAnswer {
 		sc.nextLine();														//Enter 치기 전까지 멈춰 있음
 		System.out.println("1번 문제 실행~!");
 		sc.nextLine();	
+	}
+
+	@Override
+	public boolean isRun() {
+		return true;
 	}
 
 }

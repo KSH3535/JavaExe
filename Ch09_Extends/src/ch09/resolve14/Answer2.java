@@ -16,10 +16,9 @@ public class Answer2 implements IQuestionAnswer {
 				+ "\r\n"
 				+ "ITablet를 상속받은 삼성, 소니, LG는 Tablet을 구현클래스로 만들고\r\n"
 				+ "OEM을 의뢰한 비트캠프는 TabletTester를 생성합니다.\r\n"
-				+ "이 클래스들이 완성되면 TabletMain에서 테스트를 진행하세요.";
+				+ "이 클래스들이 완성되면 TabletMain에서 테스트를 진행하세요.\n\n";
 		
 		System.out.println(question);
-		System.out.println();
 	}	
 
 	@Override
@@ -28,6 +27,11 @@ public class Answer2 implements IQuestionAnswer {
 		sc.nextLine();														
 		System.out.println("2번 문제 실행~!");
 		sc.nextLine();	
+	}
+
+	@Override
+	public boolean isRun() {
+		return true;
 	}
 
 }
