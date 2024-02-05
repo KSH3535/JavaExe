@@ -1,6 +1,11 @@
 package ch09.resolve14;
 
+import java.util.Arrays;
 import java.util.Scanner;
+
+import ch09.resolve14.question03.BaseBallMenu;
+import ch09.resolve14.question03.DecisionBall;
+import ch09.resolve14.question03.GeneratorThreeNum;
 
 public class Answer3 implements IQuestionAnswer {
 
@@ -55,8 +60,33 @@ public class Answer3 implements IQuestionAnswer {
 	@Override
 	public void answer(Scanner sc) {
 		
-		sc.nextLine();														
-		System.out.println("3번 문제 실행~!");
+		sc.nextLine();					
+		
+		System.out.println("*****삼진아웃 게임을 시작합니다*****");
+		
+		// 컴퓨터의 중복되지 않은 3개의 숫자 생성
+		int[] comArr = GeneratorThreeNum.getRandomNum();
+		
+		// 컴퓨터가 생성한 숫자 확인
+		System.out.println(Arrays.toString(comArr));
+		
+		boolean isRun = true;
+		while(isRun) {
+			// 사용자의 3개 숫자 입력
+			int[] userArr = new int[3];
+			BaseBallMenu.printOrder(1);
+			userArr[0] = BaseBallMenu.getUserNum();
+			BaseBallMenu.printOrder(2);
+			userArr[1] = BaseBallMenu.getUserNum();
+			BaseBallMenu.printOrder(3);
+			userArr[2] = BaseBallMenu.getUserNum();
+		
+			// 결과 판단
+			isRun = DecisionBall.decisionBall(comArr, userArr);
+		}
+		
+		System.out.println("정확하게 맞추셨습니다 축하합니다!");
+		
 		sc.nextLine();	
 	}
 
