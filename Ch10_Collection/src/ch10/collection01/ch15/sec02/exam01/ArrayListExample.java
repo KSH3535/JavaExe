@@ -8,6 +8,10 @@ public class ArrayListExample {
 		
 		// ArrayList 컬렉션 생성
 		List<Board> list = new ArrayList<>();
+		/*
+		 * List<E> list = new ArrayList<E>();					지정된 타입 객체만 저장
+		 * List list = new ArraryList();								모든 타입의 객체를 저장
+		 */
 
 		// 객체 추가
 		list.add(new Board("제목1", "내용1", "글쓴이1"));
