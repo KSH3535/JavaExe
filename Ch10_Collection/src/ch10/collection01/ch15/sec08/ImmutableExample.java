@@ -48,7 +48,6 @@ public class ImmutableExample {
 		// 배열로부터 List 불변 컬렉션 생성
 		String[] arr = {"A", "B", "C"};
 		List<String> immutableList3 = Arrays.asList(arr);
-		
 	}
 
 }
