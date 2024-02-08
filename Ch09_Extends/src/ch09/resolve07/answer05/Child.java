@@ -1,4 +1,4 @@
-package ch09.resolve07;
+package ch09.resolve07.answer05;
 
 //다음 클래스를 정의하세요
 //1) 어린아이가 가지고 있는 구슬 개수 정보를 담을 수 있다

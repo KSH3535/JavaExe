@@ -1,4 +1,4 @@
-package ch08.class09;
+package ch08.class09.answer05;
 
 //Rectangle클래스를 작성하세요
 //int타입의 x1, y1, x2, y2 : 사각형을 구성하는 두 점의 좌표

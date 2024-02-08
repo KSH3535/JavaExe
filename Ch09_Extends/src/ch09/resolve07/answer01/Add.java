@@ -1,6 +1,6 @@
-package ch09.resolve07;
+package ch09.resolve07.answer01;
 
-public class Sub {
+public class Add {
 	int  a, b;
 	
 	public void setValue(int a, int b) {
@@ -9,6 +9,6 @@ public class Sub {
 	}
 	
 	public int calculate() {
-		return (a - b);
+		return (a + b);
 	}
 }

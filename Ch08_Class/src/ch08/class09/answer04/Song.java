@@ -1,4 +1,4 @@
-package ch08.class09;
+package ch08.class09.answer04;
 
 //노래를 나타내는 Song이라는 클래스를 설계하세요.
 //<필드>

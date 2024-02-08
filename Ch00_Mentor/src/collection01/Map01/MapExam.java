@@ -34,7 +34,7 @@ public class MapExam {
 		Set<String> keySet = map.keySet();
 		
 		for (String key : keySet) {
-			System.out.println("key : ", value map.get(key));
+			System.out.println("key : " + key + ", value : " + map.get(key));
 		}
 		
 		System.out.println("==============================");
@@ -43,7 +43,7 @@ public class MapExam {
 		Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
 		
 		for (Map.Entry<String, Integer> en : entrySet) {
-			System.out.println();
+			System.out.println("key : " + en.getKey() + ", value : " + en.getValue());
 		}
 		
 		

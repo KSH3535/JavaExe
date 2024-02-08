@@ -1,6 +1,6 @@
-package ch09.resolve07;
+package ch09.resolve07.answer01;
 
-public class Add {
+public class Mul {
 	int  a, b;
 	
 	public void setValue(int a, int b) {
@@ -9,6 +9,6 @@ public class Add {
 	}
 	
 	public int calculate() {
-		return (a + b);
+		return (a * b);
 	}
 }

@@ -1,4 +1,4 @@
-package ch09.resolve07;
+package ch09.resolve07.answer01;
 
 public class Div {
 	int  a, b;

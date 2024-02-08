@@ -1,4 +1,4 @@
-package ch09.resolve07;
+package ch09.resolve07.answer02;
 
 //밑변과 높이 정보를 저장할 수 있는 Triangle클래스를 정의합니다
 //생성과 동시에 초기화가 가능한 생성자도 정의합니다

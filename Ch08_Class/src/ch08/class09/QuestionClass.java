@@ -2,6 +2,14 @@ package ch08.class09;
 
 import java.util.Scanner;
 
+import ch08.class09.answer01.FruitBuyer;
+import ch08.class09.answer01.FruitSeller;
+import ch08.class09.answer02.ChineseRestaurant;
+import ch08.class09.answer03.PearBuyer;
+import ch08.class09.answer03.PearMarket;
+import ch08.class09.answer04.Song;
+import ch08.class09.answer05.Rectangle;
+
 public class QuestionClass {
 	
 	public static void printMenu() {
@@ -75,7 +83,15 @@ public class QuestionClass {
 
 	// 2번 문제에 대한 풀이
 	public static void answer2(Scanner sc) {
-
+		ChineseRestaurant rest = 
+				new ChineseRestaurant(sc, "천안문", 
+						new String[]{"짜장면", "짬뽕", "탕수육",
+									"라조기", "유산슬", "유린기",
+									"해물떡볶이", "우동"});
+		
+		rest.viewMenu();
+		rest.selectFood();
+		rest.deliveryFood();
 	}
 
 	// 3번 문제에 대한 풀이

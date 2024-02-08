@@ -3,6 +3,14 @@ package ch09.resolve07;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import ch09.resolve07.answer01.Add;
+import ch09.resolve07.answer01.Div;
+import ch09.resolve07.answer01.Mul;
+import ch09.resolve07.answer01.Sub;
+import ch09.resolve07.answer02.Triangle;
+import ch09.resolve07.answer03.ArrayUtility;
+import ch09.resolve07.answer05.Child;
+
 /*
 1. 클래스 Add
    클래스 Sub
@@ -122,13 +130,14 @@ public static void answer1(Scanner sc) {
 
 // 2번 문제에 대한 풀이
 public static void answer2(Scanner sc) {
-	Triangle tri = new Triangle(10, 10);
-
-	tri.setWidth (10);
-	tri.setHeight (5);
-
-	System.out.printf("밑변이 %d, 높이가 %d인 삼각형의 넓이 : %.1f\n"
-								,tri.width, tri.height, tri.area());
+	Triangle tri = new Triangle(4, 5);
+	System.out.printf("밑변이 %d, 높이가 %d인 삼각형의 넓이는 %d\n",
+			4, 5, tri.area());
+	
+	tri.setWidth(7);
+	tri.setHeight(12);
+	System.out.printf("밑변이 %d, 높이가 %d인 삼각형의 넓이는 %d\n",
+			7, 12, tri.area());
 }
 
 // 3번 문제에 대한 풀이
