@@ -1,4 +1,4 @@
-package ch04.sec03;
+package ch03.control07.ch04.sec03;
 
 public class SwitchValueExample {
 
