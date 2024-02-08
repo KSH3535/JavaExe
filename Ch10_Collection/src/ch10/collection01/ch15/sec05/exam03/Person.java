@@ -21,5 +21,4 @@ public class Person implements Comparable<Person> {
 		//return name.compareTo(o.name) *-1 ;				//역정렬
 	}
 	
-	
 }

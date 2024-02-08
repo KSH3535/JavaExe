@@ -8,4 +8,5 @@ public class Fruit {
 		this.name = name;
 		this.price = price;
 	}
+	
 }

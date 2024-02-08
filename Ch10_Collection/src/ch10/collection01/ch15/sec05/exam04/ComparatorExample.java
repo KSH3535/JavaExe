@@ -11,7 +11,6 @@ import java.util.TreeSet;
    TreeMap<K, V> treeMap = new TreeMap<K, V>(new Comparator());
  */
 
-
 public class ComparatorExample {
 	public static void main(String[] args) {
 		
