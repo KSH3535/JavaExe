@@ -3,6 +3,7 @@ package ch11.string02.ch12.sec05;
 import java.util.ArrayList;
 import java.util.List;
 
+
 class MyStringBuilder {
 	private List<Character> chList = new ArrayList<>();
 	
