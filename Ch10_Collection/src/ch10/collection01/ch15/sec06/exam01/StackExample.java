@@ -6,6 +6,7 @@ package ch10.collection01.ch15.sec06.exam01;
  *  알고리즘도 이런 구조
  */
 
+
 import java.util.Stack;
 
 public class StackExample {

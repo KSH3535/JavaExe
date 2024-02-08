@@ -8,4 +8,5 @@ public class Message {
 		this.command = command;
 		this.to = to;
 	}
+	
 }
