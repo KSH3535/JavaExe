@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class EmployeeManager {
 	
-	private Map<Integer, String> map = new HashMap<>();
+	private Map<String, Employee> empMap = new HashMap<>();
 	private Scanner sc = new Scanner(System.in);
 	
 	private int viewMenu() {
@@ -16,14 +16,13 @@ public class EmployeeManager {
 		System.out.println("1. 정규직");
 		System.out.println("2. 임시직");
 		System.out.println("3. 일용직");
-		System.out.println("4. 전체 정보 보기");
-		System.out.println("5. 정규직 정보 보기");
-		System.out.println("6. 임시직 정보 보기");
-		System.out.println("7. 일용직 정보 보기");
+		System.out.println("4. 전체정보보기");
+		System.out.println("5. 정규직 보기");
+		System.out.println("6. 임시직 보기");
+		System.out.println("7. 일용직 보기");
 		System.out.println("8. 종료");
-		System.out.print("번호 입력 >> ");
+		System.out.println("번호 입력 >> ");
 		int sel = sc.nextInt();
-		
 		return sel;
 	}
 	private RegularEmployee createRegularEmployee() {
@@ -35,8 +34,8 @@ public class EmployeeManager {
 		int yearSalary = sc.nextInt();
 		System.out.print("보너스 >> ");
 		int bonus = sc.nextInt();
-		RegularEmployee emp = new RegularEmployee (empno, name, yearSalary, bonus);
-		
+		RegularEmployee emp = 
+				new RegularEmployee(empno, name, yearSalary, bonus);
 		return emp;
 	}
 	private TempEmployee createTempEmployee() {
@@ -47,9 +46,9 @@ public class EmployeeManager {
 		System.out.print("연봉 >> ");
 		int yearSalary = sc.nextInt();
 		System.out.print("계약기간 >> ");
-		int hireyear = sc.nextInt();
-		TempEmployee emp = new TempEmployee (empno, name, yearSalary, hireyear);
-		
+		int hireYear = sc.nextInt();
+		TempEmployee emp = 
+				new TempEmployee(empno, name, yearSalary, hireYear);
 		return emp;
 	}
 	private PartTimeEmployee createPartTimeEmployee() {
@@ -61,46 +60,76 @@ public class EmployeeManager {
 		int dailyPay = sc.nextInt();
 		System.out.print("일한 일수 >> ");
 		int workDay = sc.nextInt();
-		PartTimeEmployee emp = new PartTimeEmployee (empno, name, dailyPay, workDay);
-		
+		PartTimeEmployee emp = 
+				new PartTimeEmployee(empno, name, dailyPay, workDay);
 		return emp;
 	}
-	private String saveEmployee(Employee emp) {
-		return map.put(emp.empno, emp.name);
+	
+	//=======================================================
+	
+	private boolean saveEmployee(Employee emp) {
+
+		Employee ret = empMap.put(emp.empno, emp);
+		if(ret==null)
+			System.out.println("새로 저장합니다.");
+		else
+			System.out.println("기존의 공간에 덮어씁니다.");
+		
+		return true;
 	}
 	private void viewAllEmployeeInfo() {
-//		Set<Integer> keySet = map.keySet();
-//		Iterator<Integer> keyIterator = keySet.iterator();
-//	
-//		while (keyIterator.hasNext()) {
-//			Integer k = keyIterator.next();
-//			String v = map.get(k);
-//			
-//		}
-		for (Employee emp : map.values()) {
+		Set<String> keySet = empMap.keySet();
+		Iterator<String> keyIterator = keySet.iterator();
+		int i = 0;
+		while(keyIterator.hasNext()) {
+			i++;
+			String k = keyIterator.next();
+			Employee emp = empMap.get(k);
+			System.out.println("********* " + i + " *********");
 			emp.showEmployeeInfo();
 		}
 	}
-	//=======================================
-	private void viewRegularEmployee() {
-		for(int i=0; i<this.numOfEmp; i++) {
-			if(this.empArr[i] instanceof RegularEmployee)
-				this.empArr[i].showEmployeeInfo();
+	private void viewRegEmployeeInfo() {
+		Set<String> keySet = empMap.keySet();
+		Iterator<String> keyIterator = keySet.iterator();
+		int i = 0;
+		while(keyIterator.hasNext()) {
+			String k = keyIterator.next();
+			Employee emp = empMap.get(k);
+			if(emp instanceof RegularEmployee) {
+				System.out.println("********* " + (++i) + " *********");
+				emp.showEmployeeInfo();				
+			}
 		}
 	}
-	private void viewTempEmployee() {
-		for(int i=0; i<this.numOfEmp; i++) {
-			if(this.empArr[i] instanceof TempEmployee)
-				this.empArr[i].showEmployeeInfo();
+	private void viewTempEmployeeInfo() {
+		Set<String> keySet = empMap.keySet();
+		Iterator<String> keyIterator = keySet.iterator();
+		int i = 0;
+		while(keyIterator.hasNext()) {
+			String k = keyIterator.next();
+			Employee emp = empMap.get(k);
+			if(emp instanceof TempEmployee) {
+				System.out.println("********* " + (++i) + " *********");
+				emp.showEmployeeInfo();				
+			}
 		}
 	}
-	private void viewPartTimeEmployee() {
-		for(int i=0; i<this.numOfEmp; i++) {
-			if(this.empArr[i] instanceof PartTimeEmployee)
-				this.empArr[i].showEmployeeInfo();
+	private void viewPartTimeEmployeeInfo() {
+		Set<String> keySet = empMap.keySet();
+		Iterator<String> keyIterator = keySet.iterator();
+		int i = 0;
+		while(keyIterator.hasNext()) {
+			String k = keyIterator.next();
+			Employee emp = empMap.get(k);
+			if(emp instanceof PartTimeEmployee) {
+				System.out.println("********* " + (++i) + " *********");
+				emp.showEmployeeInfo();				
+			}
 		}
 	}
-	//=======================================
+	
+	//=======================================================
 	
 	public void run() {
 		boolean isRun = true;
@@ -123,13 +152,13 @@ public class EmployeeManager {
 				viewAllEmployeeInfo();
 				break;
 			case EmpMenu.SHOW_REG_INFO:
-				viewRegularEmployee();
+				viewRegEmployeeInfo();
 				break;
 			case EmpMenu.SHOW_TEMP_INFO:
-				viewTempEmployee();
+				viewTempEmployeeInfo();
 				break;
-			case EmpMenu.SHOW_PART_INFO :
-				viewPartTimeEmployee();
+			case EmpMenu.SHOW_PART_INFO:
+				viewPartTimeEmployeeInfo();
 				break;
 			case EmpMenu.EXIT:
 				emp = null;
@@ -145,7 +174,7 @@ public class EmployeeManager {
 			if (emp != null) {
 				boolean isSave = saveEmployee(emp);
 				if (!isSave)
-					System.out.println("더 이상 저장 공간이 없습니다.");
+					System.out.println("오류가 발생했습니다.");
 			}
 		}
 		

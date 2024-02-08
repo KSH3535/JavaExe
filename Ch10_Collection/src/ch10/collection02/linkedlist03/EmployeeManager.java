@@ -1,5 +1,9 @@
 package ch10.collection02.linkedlist03;
 
+//linkedlist02 패키지 아래의 클래스들을
+//LinkedList로 변환된 클래스를
+//사번으로 검색/수정/삭제 기능을 추가하세요
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,8 +22,10 @@ public class EmployeeManager {
 		System.out.println("5. 정규직 정보 보기");
 		System.out.println("6. 임시직 정보 보기");
 		System.out.println("7. 일용직 정보 보기");
-		System.out.println("8. 검색 및 수정/삭제");
-		System.out.println("9. 종료");
+		System.out.println("8. 사번 검색");
+		System.out.println("9. 사번 삭제");
+		System.out.println("10. 사번 수정");
+		System.out.println("11. 종료");
 		System.out.print("번호 입력 >> ");
 		int sel = sc.nextInt();
 		
@@ -64,59 +70,98 @@ public class EmployeeManager {
 		
 		return emp;
 	}
+	
+	//================================================================
 
-	private boolean saveEmployee(Employee emp) {
-		return list.add(emp);
+	private boolean saveEmployee(Employee newEmp) {
+		boolean isSave = false;
+		for(int i=0; i<list.size(); i++) {
+			Employee emp = list.get(i);
+			if(emp.empno.equals(newEmp.empno)) {
+				System.out.println(emp.empno + " 사번을 갱신합니다.");
+				list.remove(i);
+				list.add(i, newEmp);
+				isSave = true;
+				break;
+			}
+		}
+		
+		if(!isSave) {
+			System.out.println("새로운 사원을 추가합니다~");
+			isSave = list.add(newEmp);
+		}
+			
+		return isSave;
 	}
 	
 	private void viewAllEmployeeInfo() {
-		for (Employee emp : list) {
+		for(int i=0;i<list.size();i++) {
+			System.out.println("****** " + (i+1) + " ******");
+			Employee emp = list.get(i);
 			emp.showEmployeeInfo();
 		}
 	}
-	
 	private void viewRegularEmployee() {
-		for (Employee emp : list) {
-			if (emp instanceof RegularEmployee)
-				emp.showEmployeeInfo();
+		for(int i=0;i<list.size();i++) {
+			Employee emp = list.get(i);
+			if(emp instanceof RegularEmployee) {
+				System.out.println("****************");			
+				emp.showEmployeeInfo();				
+			}
 		}
 	}
 	private void viewTempEmployee() {
-		for (Employee emp : list) {
-			if (emp instanceof TempEmployee)
-				emp.showEmployeeInfo();
+		for(int i=0;i<list.size();i++) {
+			Employee emp = list.get(i);
+			if(emp instanceof TempEmployee) {
+				System.out.println("****************");			
+				emp.showEmployeeInfo();				
+			}
 		}
 	}
 	private void viewPartTimeEmployee() {
-		for (Employee emp : list) {
-			if (emp instanceof PartTimeEmployee)
+		for(int i=0;i<list.size();i++) {
+			Employee emp = list.get(i);
+			if(emp instanceof PartTimeEmployee) {
+				System.out.println("****************");			
+				emp.showEmployeeInfo();				
+			}
+		}
+	}
+	//================================================================
+	
+	private String getEmpNo() {
+		System.out.print("사번 입력 >> ");
+		String empNo = sc.next();
+		return empNo;
+	}
+	private void searchEmployee(String empno) {
+		for(int i=0;i<list.size();i++) {			
+			Employee emp = list.get(i);
+			if(emp.empno.equals(empno)) {
+				System.out.println("****** " + (i+1) + " ******");
 				emp.showEmployeeInfo();
+			}
 		}
 	}
-	//=======================================
-	
-	private void findEmployeeByEmpno(String empno) {
-		for (Employee emp : list) {
-			if (emp.getEmpno().equals(empno))
-				System.err.println(empno);
-		}
-	}
-	
-	private void addEmployee(String empno) {
-		
-	}
-	
 	private void deleteEmployee(String empno) {
-		
+		for(int i=0;i<list.size();i++) {
+			Employee emp = list.get(i);
+			if(emp.empno.equals(empno)) {
+				list.remove(i);
+				System.out.println("****** " + (i+1) + " ******");
+				System.out.println("인덱스 " + i + "를 삭제했습니다.");
+			}
+		}
+	}
+	private void modifyEmployee() {
+		System.out.println("Main Menu에서 사번과 정보를 입력하시면 새로 갱신됩니다~");
+		sc.nextLine();
+		sc.nextLine();
 	}
 	
-	private void searchAndUpdateEmployee() {
-		
-	}
 	
-	
-	
-	//=======================================
+	//================================================================
 	
 	public void run() {
 		boolean isRun = true;
@@ -147,8 +192,14 @@ public class EmployeeManager {
 			case EmpMenu.SHOW_PART_INFO :
 				viewPartTimeEmployee();
 				break;
-			case EmpMenu.SEARCH_BY_EMPNO:
-				searchAndUpdateEmployee();
+			case EmpMenu.EMPNO_SEARCH:
+				searchEmployee(getEmpNo());
+				break;
+			case EmpMenu.EMPNO_DELETE:
+				deleteEmployee(getEmpNo());
+				break;
+			case EmpMenu.EMPNO_MODIFY:
+				modifyEmployee();
 				break;
 			case EmpMenu.EXIT:
 				emp = null;

@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class EmployeeManager {
+	
 	private Map<String, Employee> empMap = new HashMap<>();
 	private Scanner sc = new Scanner(System.in);
 	

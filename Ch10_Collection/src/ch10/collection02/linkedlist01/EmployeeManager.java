@@ -1,5 +1,8 @@
 package ch10.collection02.linkedlist01;
 
+//linkedlist01 패키지 아래의 클래스들을
+//배열 -> LinkedList로 변환하세요
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
