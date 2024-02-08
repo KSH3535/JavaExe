@@ -21,7 +21,7 @@ public class PropertiesExample {
 		// Properties 컬렉션 생성
 		Properties properties = new Properties();
 		
-		//PropertiesExample.class와 동일한 ClassPath에 있는 database.properties 파일 로드
+		// PropertiesExample.class와 동일한 ClassPath에 있는 database.properties 파일 로드
 		properties.load(PropertiesExample.class.getResourceAsStream("database.properties"));
 		
 		String driver = properties.getProperty("driver");

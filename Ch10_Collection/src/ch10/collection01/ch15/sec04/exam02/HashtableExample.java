@@ -11,7 +11,6 @@ package ch10.collection01.ch15.sec04.exam02;
  * 동기화 처리가 되어있는 Vector와 HashTable이 좀 더 느리다.
  */
 
-
 import java.util.Hashtable;
 import java.util.Map;
 
