@@ -19,7 +19,7 @@ public class EchoServer {
 	public static void main(String[] args) {
 		final int PORT = 9000;
 		try {
-			// 이 서버 프로그램이 돌아가는 환경의 IP주소를 자동으로 소켓에 할당
+			// 이 서버 프로그램이 돌아가는 환경의 IP주소를 자동으로 소켓에 할당, PORT는 따로 지정
 			ServerSocket server = new ServerSocket(PORT);
 			System.out.println("Client 접속을 기다립니다...");
 
@@ -44,7 +44,7 @@ public class EchoServer {
 			String line;
 			while (true) {
 				line = br.readLine();	// 내부 버퍼로부터 '\n'까지 읽어들여라
-				if (line == null) 		// 통신이 끊어졌다. 상대방이 종료했다.
+				if (line == null) 		// 통신이 끊어졌다. 상대방이 종료했다. (통신이 끊어지면 NULL값 리턴으로 약속되어있음)
 					break;
 				System.out.println("클라이언트로부터 수신 : " + line);
 				pw.println(line); 		// 데이터+개행문자('\n') 전송

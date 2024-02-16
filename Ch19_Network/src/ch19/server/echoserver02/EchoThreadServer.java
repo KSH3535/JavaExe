@@ -45,6 +45,7 @@ class EchoThread extends Thread {
 			InputStream in = socket.getInputStream();
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			
 			String line;
 			while (true) {
 				line = br.readLine();	
